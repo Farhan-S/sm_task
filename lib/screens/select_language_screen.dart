@@ -94,10 +94,14 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
 
                     // Back button
                     CircularBackButton(
-                      onPressed: ()=> { // Navigate to language selection screen
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => const EnableLocationScreen()),
-                      )}
+                      onPressed: () => {
+                        // Navigate to language selection screen
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => const EnableLocationScreen(),
+                          ),
+                        ),
+                      },
                     ),
 
                     const SizedBox(height: 24),
@@ -135,7 +139,10 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                 child: Container(
                   color: const Color(0xFFFAFAFA), // Light background color
                   child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 16,
+                    ),
                     itemCount: languages.length,
                     itemBuilder: (context, index) {
                       final language = languages[index];
