@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sm_task/screens/enable_location_screen.dart';
 
 import '../models/language_option.dart';
 import '../widgets/circular_back_button.dart';
 import '../widgets/language_selection_item.dart';
 import '../widgets/primary_button.dart';
+import 'enable_location_screen.dart';
+import 'posts_screen.dart';
 
 class SelectLanguageScreen extends StatefulWidget {
   const SelectLanguageScreen({super.key});
@@ -58,13 +59,10 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
   }
 
   void _handleContinue() {
-    // Navigate to home or next screen
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Language selected: ${languages.firstWhere((l) => l.isSelected).name}',
-        ),
-        backgroundColor: Colors.green,
+    // Navigate to Posts screen
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const PostsScreen(),
       ),
     );
   }
