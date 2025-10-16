@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import '../states/onboarding/onboarding_bloc.dart';
+import '../states/onboarding/onboarding_event.dart';
+import '../states/onboarding/onboarding_state.dart';
 import 'onboarding_screen.dart';
+import 'signin_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,19 +33,30 @@ class _SplashScreenState extends State<SplashScreen>
     // Start fade in
     _fadeController.forward();
 
+    // Check onboarding status
+    context.read<OnboardingBloc>().add(CheckOnboardingStatus());
+
     // Navigate after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
-        _navigateToOnboarding();
+        _navigateBasedOnOnboardingStatus();
       }
     });
   }
 
-  void _navigateToOnboarding() {
+  void _navigateBasedOnOnboardingStatus() {
+    final state = context.read<OnboardingBloc>().state;
+
+    Widget destination;
+    if (state is OnboardingCompleted) {
+      destination = const SignInScreen();
+    } else {
+      destination = const OnboardingScreen();
+    }
+
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const OnboardingScreen(),
+        pageBuilder: (context, animation, secondaryAnimation) => destination,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: animation, child: child);
         },

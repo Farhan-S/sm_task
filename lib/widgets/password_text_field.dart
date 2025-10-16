@@ -56,7 +56,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
     double strength = _getPasswordStrength();
     if (strength <= 0.2) return Colors.red;
     if (strength <= 0.6) return Colors.orange;
-    return Colors.green;
+    return Colors.blue.shade600;
   }
 
   @override
@@ -97,15 +97,18 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
               color: Colors.grey.shade400,
               letterSpacing: 2,
             ),
-            suffixIcon: IconButton(
-              icon: Icon(
-                _obscureText
-                    ? Icons.visibility_off_outlined
-                    : Icons.visibility_outlined,
-                color: Colors.grey.shade400,
-                size: 24,
+            suffixIcon: Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: IconButton(
+                icon: Icon(
+                  _obscureText
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                  color: Colors.grey.shade400,
+                  size: 24,
+                ),
+                onPressed: _togglePasswordVisibility,
               ),
-              onPressed: _togglePasswordVisibility,
             ),
             filled: true,
             fillColor: Colors.white,

@@ -15,20 +15,14 @@ class OnboardingPageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: [
           const Spacer(flex: 1),
 
           // Image container
-          Flexible(
-            flex: 3,
-            child: SizedBox(
-              height: 280,
-              width: 280,
-              child: Image.asset(data.imagePath, fit: BoxFit.contain),
-            ),
-          ),
+          Image.asset(data.imagePath, fit: BoxFit.contain),
+
 
           const SizedBox(height: 40),
 

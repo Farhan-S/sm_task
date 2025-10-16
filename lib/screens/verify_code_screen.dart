@@ -95,9 +95,9 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
       // Show success dialog
       SuccessDialog.show(
         context: context,
-        title: 'Password Reset Successful',
+        title: 'Success',
         message:
-            'Your password has been reset successfully. You can now sign in with your new password.',
+            'Your password is successfully created',
         buttonText: 'Continue',
         imagePath: 'lib/assets/images/list-3.png',
         onContinue: () {
