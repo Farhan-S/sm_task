@@ -533,7 +533,7 @@ Press 'R' in terminal or use hot restart button
 
 | Assignment | Branch         | Key Feature             | State Mgmt | Storage           |
 | ---------- | -------------- | ----------------------- | ---------- | ----------------- |
-| 1          | `assignment-1` | Figma UI Implementation | GetX       | SharedPreferences |
+| 1          | `assignment-1` | Figma UI Implementation | BloC       | SharedPreferences |
 | 2          | `assignment-2` | REST API Fetching       | BLoC       | None              |
 | 3          | `assignment-3` | Offline Capabilities    | BLoC       | Hive              |
 
