@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import 'models/post.dart';
 import 'screens/splash_screen.dart';
 import 'states/onboarding/onboarding_bloc.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Hive
+  await Hive.initFlutter();
+
+  // Register Hive adapters
+  Hive.registerAdapter(PostAdapter());
 
   // Set status bar and navigation bar to white
   SystemChrome.setSystemUIOverlayStyle(
