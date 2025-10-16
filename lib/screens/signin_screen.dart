@@ -5,6 +5,7 @@ import '../widgets/custom_checkbox.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/password_text_field.dart';
 import '../widgets/primary_button.dart';
+import 'forgot_password_screen.dart';
 import 'signup_screen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -43,6 +44,12 @@ class _SignInScreenState extends State<SignInScreen> {
     Navigator.of(
       context,
     ).push(MaterialPageRoute(builder: (context) => const SignUpScreen()));
+  }
+
+  void _navigateToForgotPassword() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()),
+    );
   }
 
   @override
@@ -152,9 +159,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           label: 'Remember Me',
                         ),
                         TextButton(
-                          onPressed: () {
-                            // Handle forgot password
-                          },
+                          onPressed: _navigateToForgotPassword,
                           child: Text(
                             'Forgot Password',
                             style: TextStyle(

@@ -18,16 +18,19 @@ class OnboardingPageWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Column(
         children: [
-          const Spacer(flex: 2),
+          const Spacer(flex: 1),
 
           // Image container
-          SizedBox(
-            height: 300,
-            width: 300,
-            child: Image.asset(data.imagePath, fit: BoxFit.contain),
+          Flexible(
+            flex: 3,
+            child: SizedBox(
+              height: 280,
+              width: 280,
+              child: Image.asset(data.imagePath, fit: BoxFit.contain),
+            ),
           ),
 
-          const SizedBox(height: 60),
+          const SizedBox(height: 40),
 
           // Title
           Text(
@@ -42,16 +45,21 @@ class OnboardingPageWidget extends StatelessWidget {
           const SizedBox(height: 16),
 
           // Description
-          Text(
-            data.description,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Colors.grey.shade600,
-              height: 1.5,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              data.description,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Colors.grey.shade600,
+                height: 1.5,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
             ),
-            textAlign: TextAlign.center,
           ),
 
-          const Spacer(flex: 3),
+          const Spacer(flex: 2),
         ],
       ),
     );

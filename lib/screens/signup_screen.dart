@@ -5,6 +5,7 @@ import '../widgets/circular_back_button.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/password_text_field.dart';
 import '../widgets/primary_button.dart';
+import '../widgets/success_dialog.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -46,12 +47,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void _handleSignUp() {
     if (_formKey.currentState!.validate()) {
-      // Handle sign up logic
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Account created successfully!'),
-          backgroundColor: Colors.green,
-        ),
+      // Show success dialog
+      SuccessDialog.show(
+        context: context,
+        title: 'Successfully Registered',
+        message:
+            'Your account has been registered successfully, now let\'s enjoy our features!',
+        buttonText: 'Continue',
+        onContinue: () {
+          Navigator.of(context).pop(); // Close dialog
+          Navigator.of(context).pop(); // Go back to sign in
+        },
       );
     }
   }

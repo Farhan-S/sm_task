@@ -103,7 +103,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
                     ? Icons.visibility_off_outlined
                     : Icons.visibility_outlined,
                 color: Colors.grey.shade400,
-                size: 22,
+                size: 24,
               ),
               onPressed: _togglePasswordVisibility,
             ),
