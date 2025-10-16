@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../models/onboarding_data.dart';
 import '../states/onboarding/onboarding_bloc.dart';
 import '../states/onboarding/onboarding_event.dart';
-import '../models/onboarding_data.dart';
 import '../widgets/onboarding_page_widget.dart';
 import '../widgets/primary_button.dart';
 import 'signin_screen.dart';
@@ -43,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _completeOnboarding() {
     // Mark onboarding as completed in SharedPreferences
     context.read<OnboardingBloc>().add(CompleteOnboarding());
-    
+
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const SignInScreen()),
     );
