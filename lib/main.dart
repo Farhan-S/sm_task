@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'states/onboarding/onboarding_bloc.dart';
 import 'screens/splash_screen.dart';
+import 'states/onboarding/onboarding_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
