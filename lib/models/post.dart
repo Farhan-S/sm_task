@@ -21,11 +21,6 @@ class Post {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'userId': userId,
-      'id': id,
-      'title': title,
-      'body': body,
-    };
+    return {'userId': userId, 'id': id, 'title': title, 'body': body};
   }
 }

@@ -8,16 +8,13 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final ApiService _apiService;
 
   PostsBloc({ApiService? apiService})
-      : _apiService = apiService ?? ApiService(),
-        super(const PostsInitial()) {
+    : _apiService = apiService ?? ApiService(),
+      super(const PostsInitial()) {
     on<FetchPosts>(_onFetchPosts);
     on<RefreshPosts>(_onRefreshPosts);
   }
 
-  Future<void> _onFetchPosts(
-    FetchPosts event,
-    Emitter<PostsState> emit,
-  ) async {
+  Future<void> _onFetchPosts(FetchPosts event, Emitter<PostsState> emit) async {
     emit(const PostsLoading());
     try {
       final posts = await _apiService.getPosts();

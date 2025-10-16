@@ -6,20 +6,21 @@ class ApiService {
   final Dio _dio;
   static const String _baseUrl = 'https://jsonplaceholder.typicode.com';
 
-  ApiService() : _dio = Dio(BaseOptions(
-    baseUrl: _baseUrl,
-    connectTimeout: const Duration(seconds: 5),
-    receiveTimeout: const Duration(seconds: 3),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  ));
+  ApiService()
+    : _dio = Dio(
+        BaseOptions(
+          baseUrl: _baseUrl,
+          connectTimeout: const Duration(seconds: 5),
+          receiveTimeout: const Duration(seconds: 3),
+          headers: {'Content-Type': 'application/json'},
+        ),
+      );
 
   /// Fetches a list of posts from the JSONPlaceholder API
   Future<List<Post>> getPosts() async {
     try {
       final response = await _dio.get('/posts');
-      
+
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data;
         return data.map((json) => Post.fromJson(json)).toList();
@@ -28,7 +29,9 @@ class ApiService {
       }
     } on DioException catch (e) {
       if (e.type == DioExceptionType.connectionTimeout) {
-        throw Exception('Connection timeout. Please check your internet connection.');
+        throw Exception(
+          'Connection timeout. Please check your internet connection.',
+        );
       } else if (e.type == DioExceptionType.receiveTimeout) {
         throw Exception('Server response timeout. Please try again.');
       } else if (e.type == DioExceptionType.connectionError) {
@@ -45,7 +48,7 @@ class ApiService {
   Future<Post> getPostById(int id) async {
     try {
       final response = await _dio.get('/posts/$id');
-      
+
       if (response.statusCode == 200) {
         return Post.fromJson(response.data);
       } else {

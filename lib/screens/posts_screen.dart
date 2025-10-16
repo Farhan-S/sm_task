@@ -102,8 +102,8 @@ class PostsView extends StatelessWidget {
                   context.read<PostsBloc>().add(const RefreshPosts());
                   // Wait for the state to update
                   await context.read<PostsBloc>().stream.firstWhere(
-                        (state) => state is! PostsLoading,
-                      );
+                    (state) => state is! PostsLoading,
+                  );
                 },
                 color: const Color(0xFF2F80ED),
                 child: ListView.builder(

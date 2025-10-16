@@ -60,11 +60,9 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
 
   void _handleContinue() {
     // Navigate to Posts screen
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const PostsScreen(),
-      ),
-    );
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (context) => const PostsScreen()));
   }
 
   @override
