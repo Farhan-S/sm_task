@@ -5,6 +5,7 @@ import '../widgets/custom_checkbox.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/password_text_field.dart';
 import '../widgets/primary_button.dart';
+import 'enable_location_screen.dart';
 import 'forgot_password_screen.dart';
 import 'signup_screen.dart';
 
@@ -30,12 +31,9 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void _handleSignIn() {
     if (_formKey.currentState!.validate()) {
-      // Handle sign in logic
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Sign in successful!'),
-          backgroundColor: Colors.green,
-        ),
+      // Navigate to enable location screen
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const EnableLocationScreen()),
       );
     }
   }
