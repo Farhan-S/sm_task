@@ -14,3 +14,7 @@ class FetchPosts extends PostsEvent {
 class RefreshPosts extends PostsEvent {
   const RefreshPosts();
 }
+
+class LoadCachedPosts extends PostsEvent {
+  const LoadCachedPosts();
+}
