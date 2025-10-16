@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/posts/posts_bloc.dart';
-import '../bloc/posts/posts_event.dart';
-import '../bloc/posts/posts_state.dart';
+import '../states/posts/posts_bloc.dart';
+import '../states/posts/posts_event.dart';
+import '../states/posts/posts_state.dart';
 import '../widgets/post_item_widget.dart';
 
 class PostsScreen extends StatelessWidget {
